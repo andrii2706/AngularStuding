@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {LectionService} from "./lection.service";
 
 @Component({
   selector: 'app-lection',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lection.component.scss']
 })
 export class LectionComponent implements OnInit {
+  value: any;
+  v: any;
 
-  constructor() { }
+  constructor(
+    public lectionService:LectionService
+  ) { }
 
   ngOnInit(): void {
+    this.getUsers()
   }
-
+  getUsers() {
+    // this.lectionService.getUsers().subscribe(value => console.log(value));
+    this.lectionService.getUsers().subscribe(value => value);
+  }
 }
